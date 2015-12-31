@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-console ("...start bin/www ");
+console.log ("...start bin/www ");
 
 
 var app = require('../app');
