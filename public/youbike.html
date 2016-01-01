@@ -1,48 +1,51 @@
 <!doctype html>
 <html ng-app="myApp">
-  <head>
-    <meta charset="UTF-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
-    <link rel="stylesheet" href="/resources/tutorial/css/example.css"/>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+  <link rel="stylesheet" href="/resources/tutorial/css/example.css"/>
+</head>
 
-  <body ng-controller="MyController">
+<body ng-controller="MyController">
 
-    <!-- CHAT MARKUP -->
-      <ion-header-bar class="bar-positive">
-      <h1 class="title">Infinite List</h1>
-    </ion-header-bar>
+  <!-- CHAT MARKUP -->
+  <ion-header-bar class="bar-positive">
+  <h1 class="title">Infinite List</h1>
+</ion-header-bar>
 <!-- 
       <div class="example-chat-toolbar">
         <label for="nameInput">Username:</label>
         <input ng-model="name" type="text" id="nameInput" placeholder="enter a username...">
       </div> -->
 
-        <ion-content>
-        <ion-list>
-        <ion-item ng-repeat="msg in messages"><p>
-          <strong class="example-chat-username">【{{ msg.sno }}】 {{ msg.sna }}</strong><br>【{{ msg.sarea }}】{{ msg.ar }} <br>【可借】{{ msg.sbi }}　【可還】{{ msg.bemp }} 【格數】{{ msg.tot }}<br>【更新時間】{{ msg.mday.substring(4, 6) }}/{{ msg.mday.substring(6, 8) }} {{ msg.mday.substring(8, 10) }}:{{ msg.mday.substring(10, 12) }}:{{ msg.mday.substring(12, 14) }} 【可用狀態】{{ msg.act }}
-         <hr>
-        </p>
-        </ion-item>
-      </ion-list>
-       </ion-content>
+      <ion-content>
+      <ion-list>
+      <ion-item ng-repeat="msg in messages"><p>
+      <strong class="example-chat-username">【{{ msg.sno }}】 {{ msg.sna }}</strong><br>【{{ msg.sarea }}】{{ msg.ar }} <br>【可借】{{ msg.sbi }}　【可還】{{ msg.bemp }} 【格數】{{ msg.tot }}<br>【更新時間】{{ msg.mday.substring(4, 6) }}/{{ msg.mday.substring(6, 8) }} {{ msg.mday.substring(8, 10) }}:{{ msg.mday.substring(10, 12) }}:{{ msg.mday.substring(12, 14) }} 【可用狀態】{{ msg.act }}
+      <hr>
+    </p>
+  </ion-item>
+</ion-list>
+</ion-content>
 <!-- 
       <footer>
         <input ng-model="msg" ng-keydown="addMessage($event)" type="text" id="messageInput"  placeholder="Type a message...">
       </footer> -->
-    <!-- </div> -->
+      <!-- </div> -->
 
-    <script>
+      <script>
       var myApp = angular.module("myApp", ["firebase"]);
 
       myApp.controller("MyController", ["$scope", "$firebaseArray",
         function($scope, $firebaseArray) {
           //CREATE A FIREBASE REFERENCE
           // var ref = new Firebase("https://taipei-webapp-001.firebaseio.com/");
-          var ref = new Firebase("https://taipei-webapp.firebaseio.com/");
+          // var ref = new Firebase("https://taipei-webapp.firebaseio.com/");
+          var ref = new Firebase("https://youbike2.firebaseio.com/");
+
+          
 
           // GET MESSAGES AS AN ARRAY
           $scope.messages = $firebaseArray(ref);
@@ -69,7 +72,7 @@
           //   }
           // }
         }
-      ]);
-    </script>
-  </body>
+        ]);
+</script>
+</body>
 </html>
